@@ -11,6 +11,13 @@ class Register(models.Model):
     def __str__(self):
         return self.name
     
+class Login(models.Model):
+    email = models.EmailField(blank = False, max_length = 30)
+    password = models.CharField(max_length = 14)
+    
+    def __str__(self):
+        return self.email
+    
 class Create(models.Model):
     PRIORITY = (
         ('B', 'Basic'),
