@@ -12,7 +12,7 @@ class Register(models.Model):
         return self.name
     
 class Login(models.Model):
-    email = models.EmailField(blank = False, max_length = 30)
+    email = models.EmailField(blank = False, max_length = 30,unique=True)
     password = models.CharField(max_length = 14)
     
     def __str__(self):
@@ -31,3 +31,5 @@ class Create(models.Model):
    
     def __str__(self):
         return self.task
+    
+    
