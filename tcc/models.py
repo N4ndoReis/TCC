@@ -1,10 +1,11 @@
 from django.db import models
+from django.core.validators import MinLengthValidator
 
 
 class Register(models.Model):
     name = models.CharField(max_length = 100)
-    email = models.EmailField(blank = False, max_length = 30)
-    cpf = models.CharField(max_length = 11, unique=True)
+    email = models.EmailField(blank = False, max_length = 30, unique=True)
+    #password = models.CharField(max_length = 128)
     date_of_birth = models.DateField()
     cell = models.CharField(max_length = 14)
     
@@ -31,5 +32,14 @@ class Create(models.Model):
    
     def __str__(self):
         return self.task
+    
+class BringNote(models.Model):
+    title = models.CharField(max_length=255)
+    content = models.TextField()
+    created_in = models.DateTimeField(auto_now_add = True)
+    updated_in = models.DateTimeField(auto_now = True)
+   
+    def __str__(self):
+        return self.title
     
     

@@ -31,4 +31,5 @@ class Migration(migrations.Migration):
                 ('cell', models.CharField(max_length=14)),
             ],
         ),
+    
     ]

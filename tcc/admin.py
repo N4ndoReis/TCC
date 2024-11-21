@@ -1,11 +1,12 @@
 from django.contrib import admin
-from tcc.models import Register,Login, Create
+from tcc.models import Register,Login, Create, BringNote
 
 class Registers(admin.ModelAdmin):
-    list_display = ('name','email','cpf','date_of_birth','cell' )
-    list_display_links = ('name', 'cpf',)
+    list_display = ('id','name','email','date_of_birth','cell' )
+    list_display_links = ('id','name',)
     list_per_page = 20
-    search_fields = ('name',)
+    search_fields = ('name','email',)
+    ordering = ('name',)
 
 admin.site.register(Register,Registers)
 
@@ -23,3 +24,10 @@ class Creates(admin.ModelAdmin):
     search_fields = ('task',)
     
 admin.site.register(Create,Creates)
+
+class BringNotes(admin.ModelAdmin):
+    list_display = ('title','content','created_in','updated_in')
+    list_display_links = ('title','content',)
+    search_fields = ('title',)
+    
+admin.site.register(BringNote,BringNotes)
