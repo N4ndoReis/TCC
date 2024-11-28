@@ -24,8 +24,7 @@ class RegisterSerializer(serializers.ModelSerializer):
 class LoginSerializer(serializers.ModelSerializer):
     class Meta:
         model = Login
-        fields = '__all__'
-        
+        fields = '__all__'       
         
 class CreateSerializer(serializers.ModelSerializer):
     class Meta:
