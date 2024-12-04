@@ -1,11 +1,11 @@
 import re
 
 def invalid_name(name):
-    return not name.isalpha()
+    model = r'^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$'
+    return not re.match(model, name)
+
 
 def invalid_cell(cell):
-    # 86 99999-9999
-    model = '[0-9]{2} [0-9]{5}-[0-9]{4}'
-    response = re.findall(model,cell)
-    print(response)
-    return not response
+    model = r'^\(?\d{2}\)?\s?\d{5}-\d{4}$'
+    return not re.match(model, cell)
+
